@@ -25,7 +25,6 @@ require("extensions")
 require("keymaps")
 
 vim.cmd [[ set termguicolors ]]
+vim.cmd [[ set splitright ]]
 -- tokyonight / catppucin
 vim.cmd [[ colorscheme catppuccin ]]
-
-

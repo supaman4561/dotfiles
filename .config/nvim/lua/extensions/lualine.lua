@@ -36,7 +36,7 @@ local config = {
 				"diagnostics",
 				sources = { "nvim_diagnostic", "nvim_lsp" },
 				sections = { "error", "warn", "info", "hint" },
-				symbols = { error = " ", warn = " ", info = " ", hint = " " },
+				symbols = { error = " ", warn = " ", info = " ", hint = "?" },
 			},
 			{ "navic" },
 		},
@@ -59,7 +59,7 @@ local config = {
 					end
 					return msg
 				end,
-				icon = " LSP:",
+				icon = " ",
 				color = { fg = "#1ddbb3", gui = "bold" },
 			},
 		},

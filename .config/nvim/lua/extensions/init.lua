@@ -118,7 +118,41 @@ local plugins = {
 
 	{
 		"folke/trouble.nvim",
+		opts = {},
+		cmd = "Trouble",
 		dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
+		keys = {
+			{
+				"<leader>xx",
+				"<cmd>Trouble diagnostics toggle<cr>",
+				desc = "Diagnostics (Trouble)",
+			},
+			{
+				"<leader>xX",
+				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+				desc = "Buffer Diagnostics (Trouble)",
+			},
+			{
+				"<leader>cs",
+				"<cmd>Trouble symbols toggle focus=false<cr>",
+				desc = "Symbols (Trouble)",
+			},
+			{
+				"<leader>cl",
+				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+				desc = "LSP Definitions / references / ... (Trouble)",
+			},
+			{
+				"<leader>xL",
+				"<cmd>Trouble loclist toggle<cr>",
+				desc = "Location List (Trouble)",
+			},
+			{
+				"<leader>xQ",
+				"<cmd>Trouble qflist toggle<cr>",
+				desc = "Quickfix List (Trouble)",
+			},
+		},
 	},
 
 	{
@@ -135,7 +169,6 @@ local plugins = {
 		end,
 	},
 
-	{ "lewis6991/gitsigns.nvim" },
 
 	{ "j-hui/fidget.nvim" },
 
@@ -167,6 +200,10 @@ local plugins = {
 	},
 
 	-- git
+	{ "lewis6991/gitsigns.nvim" },
+
+	{ 'akinsho/git-conflict.nvim', version = "*", config = true },
+
 	{ "airblade/vim-gitgutter" },
 
 	{
@@ -204,18 +241,13 @@ local plugins = {
 
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
-		opts = {
-			show_help = "yes", -- Show help text for CopilotChatInPlace, default: yes
-			debug = false, -- Enable or disable debug mode, the log file will be in ~/.local/state/nvim/CopilotChat.nvim.log
-			disable_extra_info = "no", -- Disable extra information (e.g: system prompt) in the response.
-			language = "Japanese", -- Copilot answer language settings when using default prompts. Default language is English.
-			-- proxy = "socks5://127.0.0.1:3000", -- Proxies requests via https or socks.
-			-- temperature = 0.1,
-		},
 		build = function()
 			vim.notify("Please update the remote plugins by running ':UpdateRemotePlugins', then restart Neovim.")
 		end,
 		event = "VeryLazy",
+		config = function()
+			require("extensions.copilot-chat")
+		end,
 		keys = {
 			{
 				"<leader>ccq",
@@ -227,24 +259,15 @@ local plugins = {
 				end,
 				desc = "CopilotChat - Quick Chat",
 			},
-			{ "<leader>cce", "<cmd>CopilotChatExplain<cr>", desc = "CopilotChat - Explain code" },
-			{ "<leader>cct", "<cmd>CopilotChatTests<cr>", desc = "CopilotChat - Generate tests" },
 			{
-				"<leader>ccT",
-				"<cmd>CopilotChatVsplitToggle<cr>",
-				desc = "CopilotChat - Toggle Vsplit", -- Toggle vertical split
+				"<leader>cce",
+				"<cmd>CopilotChatExplain<cr>",
+				desc = "CopilotChat - Explain code"
 			},
 			{
-				"<leader>ccv",
-				":CopilotChatVisual ",
-				mode = "x",
-				desc = "CopilotChat - Open in vertical split",
-			},
-			{
-				"<leader>ccx",
-				":CopilotChatInPlace<cr>",
-				mode = "x",
-				desc = "CopilotChat - Run in-place code",
+				"<leader>cct",
+				"<cmd>CopilotChatToggle<cr>",
+				desc = "CopilotChat - Toggle",
 			},
 			{
 				"<leader>ccf",
