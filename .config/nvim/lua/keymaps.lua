@@ -35,32 +35,5 @@ vim.keymap.set("n", "<leader>t", ":FloatermNew<CR>")
 vim.keymap.set("n", "<C-n>", "<cmd>NvimTreeOpen<CR>")
 vim.keymap.set("n", "<C-t>", "<cmd>NvimTreeToggle<CR>")
 
--- -- trouble
--- vim.keymap.set("n", "<leader>xx", function()
--- 	require("trouble").toggle()
--- end)
--- vim.keymap.set("n", "<leader>xw", function()
--- 	require("trouble").toggle("workspace_diagnostics")
--- end)
--- vim.keymap.set("n", "<leader>xd", function()
--- 	require("trouble").toggle("document_diagnostics")
--- end)
--- vim.keymap.set("n", "<leader>xq", function()
--- 	require("trouble").toggle("quickfix")
--- end)
--- vim.keymap.set("n", "<leader>xl", function()
--- 	require("trouble").toggle("loclist")
--- end)
--- vim.keymap.set("n", "gR", function()
--- 	require("trouble").toggle("lsp_references")
--- end)
---
--- copilot chat
--- vim.keymap.set("n", "<leader>ccb", "<cmd>CopilotChatBuffer<CR>")
--- vim.keymap.set("n", "<leader>cce", "<cmd>CopilotChatExplain<CR>")
--- vim.keymap.set("n", "<leader>cct", "<cmd>CopilotChatTests<CR>")
--- vim.keymap.set("n", "<leader>ccv", ":CopilotChatVisual<CR>")
--- vim.keymap.set("n", "<leader>ccx", ":CopilotChatInPlace<CR>")
-
 --- inc-rename
 vim.keymap.set("n", "<leader>rn", ":IncRename ")

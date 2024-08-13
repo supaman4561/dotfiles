@@ -100,10 +100,21 @@ local plugins = {
 		config = function()
 			require("extensions.telescope")
 		end,
+		keys = {
+			{
+				"<space>fb",
+				"<cmd>Telescope file_browser<cr>",
+			}
+		}
 	},
 	{ "nvim-lua/plenary.nvim" },
 
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+
+	{
+		"nvim-telescope/telescope-file-browser.nvim",
+		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+	},
 
 	{ "ryanoasis/vim-devicons" },
 
@@ -216,12 +227,12 @@ local plugins = {
 	{ "towolf/vim-helm" },
 
 	-- Helpers
-	-- {
-	-- 	"iamcco/markdown-preview.nvim",
-	-- 	build = "cd app && npm install",
-	-- 	init = function() vim.g.mkdp_filetypes = { "markdown" } end,
-	-- 	ft = { "markdown" },
-	-- },
+	{
+		"iamcco/markdown-preview.nvim",
+		build = "cd app && npm install",
+		init = function() vim.g.mkdp_filetypes = { "markdown" } end,
+		ft = { "markdown" },
+	},
 	{ "voldikss/vim-floaterm" },
 	{ "mattn/emmet-vim" },
 	{
