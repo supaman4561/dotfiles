@@ -322,7 +322,9 @@ local plugins = {
 		end,
 	},
 
-	require('extensions.lazygit')
+	require('extensions.lazygit'),
+
+	require('extensions.render-markdown')
 }
 
 local opts = {
