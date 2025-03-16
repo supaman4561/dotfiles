@@ -22,6 +22,9 @@ local config = {
 			prompt =
 			'/COPILOT_GENERATE Optimize the selected code to improve performance and readablilty. Reply in Japanese.',
 		},
+		Transrate = {
+			prompt = '日本語訳してください',
+		}
 	}
 }
 
