@@ -39,6 +39,12 @@ require('mason-lspconfig').setup_handlers({ function(server)
 				filetypes = { "helm" },
 				cmd = { "helm_ls", "serve" },
 			}
+
+			lspconfig.html.setup {
+				settings = {
+					html = { format = { indentInnerHtml = true } }
+				}
+			}
 		end,
 
 		capabilities = require('cmp_nvim_lsp').default_capabilities(
