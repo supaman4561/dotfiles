@@ -324,7 +324,9 @@ local plugins = {
 
 	require('extensions.lazygit'),
 
-	require('extensions.render-markdown')
+	require('extensions.render-markdown'),
+
+	require('extensions.avante')
 }
 
 local opts = {
