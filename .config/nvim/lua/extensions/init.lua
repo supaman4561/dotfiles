@@ -209,6 +209,10 @@ local plugins = {
 			"neovim/nvim-lspconfig",
 		},
 	},
+	{
+		'stevearc/dressing.nvim',
+		opts = {},
+	},
 
 	-- git
 	{ "lewis6991/gitsigns.nvim" },
@@ -233,6 +237,12 @@ local plugins = {
 		init = function() vim.g.mkdp_filetypes = { "markdown" } end,
 		ft = { "markdown" },
 	},
+	-- {
+	-- 	'preservim/vim-markdown',
+	-- 	dependencies = {
+	-- 		'godlygeek/tabular',
+	-- 	}
+	-- },
 	{ "voldikss/vim-floaterm" },
 	{ "mattn/emmet-vim" },
 	{
@@ -290,6 +300,12 @@ local plugins = {
 				"<cmd>CopilotChatReset<cr>", -- Reset chat history and clear buffer.
 				desc = "CopilotChat - Reset chat history and clear buffer",
 			},
+			{
+				"<leader>ccT",
+				"<cmd>CopilotChatTransrate<cr>", -- Translate text in buffer.
+				desc = "CopilotChat - Translate buffer text",
+			},
+
 		},
 	},
 	{
@@ -305,6 +321,8 @@ local plugins = {
 			require("inc_rename").setup()
 		end,
 	},
+
+	require('extensions.lazygit')
 }
 
 local opts = {
