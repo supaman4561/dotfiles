@@ -13,8 +13,11 @@ opt.emoji = true
 opt.termguicolors = true
 opt.guifont = "Hack Nerd Font"
 opt.cursorline = true
+opt.listchars = { tab = "  ", trail = "_" }
+opt.list = true
 
-vim.cmd([[match NvimInternalError /\(　\|\s\+$\)/]])
+-- vim.cmd([[match NvimInternalError /\(　\|\s\+$\)/]])
+vim.cmd([[match NvimInternalError /　/]])
 
 -- indent setting
 vim.cmd("autocmd Filetype helm setlocal sw=2 sts=2 ts=2 et")
