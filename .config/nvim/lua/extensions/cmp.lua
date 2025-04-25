@@ -11,6 +11,10 @@ cmp.setup({
 		-- { name = "buffer" },
 		-- { name = "path" },
 	},
+	window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
+	},
 	mapping = cmp.mapping.preset.insert({
 		["<S-Tab>"] = cmp.mapping.select_prev_item(),
 		["<Tab>"] = cmp.mapping.select_next_item(),
@@ -19,7 +23,7 @@ cmp.setup({
 		["<C-f>"] = cmp.mapping.confirm { select = true },
 	}),
 	experimental = {
-		ghost_text = true,
+		ghost_text = false,
 	},
 })
 -- cmp.setup.cmdline('/', {

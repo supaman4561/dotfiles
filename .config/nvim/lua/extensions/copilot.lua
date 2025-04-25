@@ -1,6 +1,7 @@
 require("copilot").setup({
 	suggestion = { enable = false },
 	panel = { enabled = false },
+	copilot_model = "claude-3.5-sonnet"
 })
 
 vim.api.nvim_create_user_command("Takeoff", function()

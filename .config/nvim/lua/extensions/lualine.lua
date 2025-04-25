@@ -3,7 +3,7 @@ local config = {
 		icons_enabled = true,
 		theme = "catppuccin",
 		-- component_separators = { left = '', right = ''},
-		component_separators = { left = "", right = "" },
+		component_separators = { left = "", right = "" },
 		-- section_separators = { left = '', right = ''},
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = {
@@ -30,6 +30,11 @@ local config = {
 				path = 1, -- relative path
 				shorting_target = 24,
 			},
+			{
+				"branch",
+				color = { fg = "#f2c23d" },
+			},
+			"diff"
 		},
 		lualine_c = {
 			{
@@ -59,7 +64,7 @@ local config = {
 					end
 					return msg
 				end,
-				icon = " ",
+				icon = "󰿘 ",
 				color = { fg = "#1ddbb3", gui = "bold" },
 			},
 		},
@@ -75,28 +80,6 @@ local config = {
 		lualine_x = { "location" },
 		lualine_y = {},
 		lualine_z = {},
-	},
-	tabline = {
-		lualine_a = {
-			{
-				"buffers",
-				symbols = { modified = "_󰷥", alternate_file = " ", directory = " " },
-			},
-		},
-		lualine_b = {},
-		lualine_c = {},
-		lualine_x = {
-			{
-				"branch",
-				color = { fg = "#f2c23d" },
-			},
-		},
-		lualine_y = {
-			"diff",
-		},
-		lualine_z = {
-			"tabs",
-		},
 	},
 	winbar = {},
 	inactive_winbar = {},

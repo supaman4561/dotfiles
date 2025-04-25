@@ -94,6 +94,9 @@ local plugins = {
 			require("extensions.lualine")
 		end,
 	},
+
+	require('extensions.bufferline'),
+
 	{
 		"nvim-telescope/telescope.nvim",
 		version = "0.1.2",
@@ -326,7 +329,9 @@ local plugins = {
 
 	require('extensions.render-markdown'),
 
-	require('extensions.avante')
+	require('extensions.avante'),
+
+	require('extensions.mcphub')
 }
 
 local opts = {
