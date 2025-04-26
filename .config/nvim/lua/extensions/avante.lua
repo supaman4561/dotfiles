@@ -26,6 +26,7 @@ return {
 		claude = {
 			endpoint = "https://api.anthropic.com",
 			model = "claude-3-7-sonnet-20250219",
+			api_key_name = "cmd:bw get notes anthropic-api-key",
 			timeout = 30000, -- Timeout in milliseconds
 			temperature = 0,
 			max_tokens = 4096,
