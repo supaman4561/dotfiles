@@ -331,7 +331,34 @@ local plugins = {
 
 	require('extensions.avante'),
 
-	require('extensions.mcphub')
+	require('extensions.mcphub'),
+
+	-- dap
+	{
+		'mfussenegger/nvim-dap',
+		keys = {
+			{
+				"<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>",
+			}
+		}
+	},
+	{
+		'jay-babu/mason-nvim-dap.nvim',
+		config = function() require('extensions.mason-nvim-dap') end,
+	},
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = {
+			"mfussenegger/nvim-dap",
+			"nvim-neotest/nvim-nio"
+		},
+		config = function() require('dapui').setup {} end,
+		keys = {
+			{
+				"<leader>dap", "<cmd> lua require('dapui').toggle() <cr>"
+			}
+		}
+	}
 }
 
 local opts = {
