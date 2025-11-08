@@ -1,0 +1,29 @@
+# エディターの補完を設定スキーマに合わせて取得
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# シェルのプロンプトの間に空行を挿入する
+add_newline = true
+
+# 記号"❯"を記号"➜"に置き換える
+[character] # 設定対象のモジュール名は 'character'
+success_symbol = '[➜](bold green)'
+
+# package モジュールを無効化してプロンプトから完全に非表示にする
+[package]
+disabled = true
+
+[golang]
+format = 'via [ $version](bold cyan) '
+
+[kubernetes]
+disabled = true
+format = 'via [󱃾 $context](dimmed green) '
+
+[git_branch]
+symbol = ' '
+
+[rust]
+symbol = '󱘗 '
+
+[terraform]
+symbol = '󱁢 '
