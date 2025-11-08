@@ -33,6 +33,7 @@ setup_wsl() {
 	eval "$(starship init zsh)"
 
 	PATH="$PATH:/usr/local/go/bin"
+	PATH="$PATH:$HOME/bin"
 
 	source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 	source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
