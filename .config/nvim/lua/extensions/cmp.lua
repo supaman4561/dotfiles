@@ -7,8 +7,8 @@ cmp.setup({
 	},
 	sources = {
 		{ name = "nvim_lsp" },
-		{ name = 'copilot' },
-		-- { name = "buffer" },
+		{ name = 'copilot', max_item_count = 15, keyword_length = 2 },
+		{ name = "buffer",  max_item_count = 15, keyword_length = 2 },
 		-- { name = "path" },
 	},
 	window = {

@@ -329,9 +329,9 @@ local plugins = {
 
 	require('extensions.render-markdown'),
 
-	require('extensions.avante'),
+	-- require('extensions.avante'),
 
-	require('extensions.mcphub'),
+	-- require('extensions.mcphub'),
 
 	-- dap
 	{
