@@ -30,6 +30,13 @@ local plugins = {
 			require("extensions.mason-lspconfig")
 		end,
 	},
+	{
+		"stevearc/conform.nvim",
+		config = function()
+			require("extensions.conform")
+		end,
+		opts = {},
+	},
 
 	-- Treesitter
 	{ "nvim-treesitter/nvim-treesitter" },
