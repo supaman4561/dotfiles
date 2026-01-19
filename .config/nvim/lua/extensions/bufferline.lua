@@ -17,7 +17,6 @@ return {
 				end,
 				offsets = { { filetype = "NvimTree", text = "File Explorer", text_align = "center", padding = 1 } },
 				separator_style = "slant",
-				highlights = require("catppuccin.groups.integrations.bufferline").get_theme(),
 				hover = {
 					enabled = true,
 					delay = 200,
