@@ -74,3 +74,5 @@ function fzf-select-history() {
 }
 zle -N fzf-select-history
 bindkey '^r' fzf-select-history
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
