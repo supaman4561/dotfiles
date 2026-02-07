@@ -34,11 +34,13 @@ setup_wsl() {
 
 	PATH="$PATH:/usr/local/go/bin"
 	PATH="$PATH:$HOME/bin"
+	PATH="$PATH:$HOME/.local/bin"
 
 	source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 	source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 	alias pbcopy='clip.exe'
+	export BROWSER=browser
 }
 
 setup_linux() {
@@ -74,3 +76,7 @@ function fzf-select-history() {
 }
 zle -N fzf-select-history
 bindkey '^r' fzf-select-history
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+. "$HOME/.cargo/env"
