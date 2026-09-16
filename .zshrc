@@ -1,6 +1,7 @@
 # OS 判定
 is_mac() { [[ "$(uname)" == "Darwin" ]] }
-is_wsl() { [[ -n "$WSL_DISTRO_NAME" ]] }
+# WSL_DISTRO_NAME は login(1) 経由 (例: wezterm の WSL domain) だと消えるので、カーネル情報でも判定する
+is_wsl() { [[ -n "$WSL_DISTRO_NAME" ]] || grep -qi microsoft /proc/sys/kernel/osrelease 2>/dev/null }
 is_linux() { [[ "$(uname)" == "Linux" ]] && ! is_wsl }
 
 setup_mac() {
@@ -30,7 +31,7 @@ setup_wsl() {
 	)
 
 	eval "$(~/.local/bin/mise activate zsh)"
-	eval "$(starship init zsh)"
+	eval "$(~/.local/bin/mise exec -- starship init zsh)"
 
 	PATH="$PATH:/usr/local/go/bin"
 	PATH="$PATH:$HOME/bin"
@@ -68,6 +69,9 @@ alias k='kubectl'
 alias kx='kubectx'
 alias kn='kubens'
 
+# terraform
+alias t='terraform'
+
 # fzf history
 function fzf-select-history() {
     BUFFER=$(history -n -r 1 | fzf --query "$LBUFFER" --reverse)
@@ -80,3 +84,19 @@ bindkey '^r' fzf-select-history
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 . "$HOME/.cargo/env"
+
+export NO_PROXY="localhost,127.0.0.1,::1"
+export no_proxy="localhost,127.0.0.1,::1"
+
+# Android SDK
+export ANDROID_HOME=/usr/lib/android-sdk
+export ANDROID_SDK_ROOT=/usr/lib/android-sdk
+export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools/bin"
+
+# tmux 自動 attach
+# インタラクティブシェルかつ tmux の外にいるときだけ実行。
+# 既存セッションがあれば最後に使ったものに attach、なければ新規作成。
+# (continuum-restore 'on' により、サーバー起動時に前回のセッションが自動復元される)
+if [[ -o interactive && -z "$TMUX" && -z "$VSCODE_INJECTION" ]]; then
+	tmux attach 2>/dev/null || tmux
+fi
