@@ -12,6 +12,7 @@ setup_mac() {
 	eval "$(starship init zsh)"
 
 	source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+	source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 	export SOPS_AGE_KEY_FILE=~/.local/state/sops/age/key.txt
 
@@ -98,10 +99,7 @@ export ANDROID_HOME=/usr/lib/android-sdk
 export ANDROID_SDK_ROOT=/usr/lib/android-sdk
 export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools/bin"
 
-# tmux 自動 attach
-# インタラクティブシェルかつ tmux の外にいるときだけ実行。
-# 既存セッションがあれば最後に使ったものに attach、なければ新規作成。
-# (continuum-restore 'on' により、サーバー起動時に前回のセッションが自動復元される)
-if [[ -o interactive && -z "$TMUX" && -z "$VSCODE_INJECTION" ]]; then
-	tmux attach 2>/dev/null || tmux
-fi
+# tmux 自動 attach (無効化)
+# if [[ -o interactive && -z "$TMUX" && -z "$VSCODE_INJECTION" ]]; then
+# 	tmux attach 2>/dev/null || tmux
+# fi
