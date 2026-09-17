@@ -9,7 +9,7 @@ setup_mac() {
 	PATH="$PATH:/usr/local/go/bin"
 
 	eval "$(mise activate zsh)"
-	eval "$(mise exec -- starship init zsh)"
+	eval "$(starship init zsh)"
 
 	source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -23,6 +23,11 @@ setup_mac() {
 	export CPPFLAGS="-I/usr/local/opt/openssl/include"
 	export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 	export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+	export ANDROID_HOME=$HOME/Library/Android/sdk
+  	export PATH=$PATH:$ANDROID_HOME/platform-tools
+  	export PATH=$PATH:$ANDROID_HOME/emulator
+
 }
 
 setup_wsl() {
