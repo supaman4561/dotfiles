@@ -33,6 +33,6 @@ gh = "latest"
 kubens = "0.9.5"
 jq = "latest"
 java = "21"
-"ubi:godotengine/godot" = { version = "4.4.1-stable", matching = "linux.x86_64", exe = "Godot_v4.4.1-stable_linux.x86_64" }
 kubectl = "1.32.7"
 "aqua:neovim" = "0.12.3"
+herdr = "latest"
